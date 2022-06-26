@@ -86,11 +86,26 @@ const DefaultForm = () => {
 
     const submitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (name === '' || email === '' || phone === '' || date === '' || message === '') {
+        if (name === '' ||
+            email === '' ||
+            phone === '' ||
+            date === '' ||
+            message === '') {
             dispatch(setErrorSubmit('All fields are required'))
             return
         }
-        //Данные для отправки на сервер собраные из формы
+        if (
+            errorMessage ||
+            errorPhone ||
+            errorDate ||
+            errorName ||
+            errorEmail
+        ) {
+            dispatch(setErrorSubmit('Please fill in the fields correctly'))
+            return
+        }
+
+        //Данные для отправки на сервер собранные из формы
         const formData = {name, email, phone, date, message}
         dispatch(setLoadingApp(true))
         const promise = new Promise<{ success: string }>((resolve, reject) => {
