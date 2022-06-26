@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tetsForSeobility/static/css/main.4c247821.css",
+    "main.css": "/tetsForSeobility/static/css/main.fe636e4c.css",
     "main.js": "/tetsForSeobility/static/js/main.2e6c21e7.js",
     "static/js/787.1edfe72a.chunk.js": "/tetsForSeobility/static/js/787.1edfe72a.chunk.js",
     "index.html": "/tetsForSeobility/index.html",
-    "main.4c247821.css.map": "/tetsForSeobility/static/css/main.4c247821.css.map",
+    "main.fe636e4c.css.map": "/tetsForSeobility/static/css/main.fe636e4c.css.map",
     "main.2e6c21e7.js.map": "/tetsForSeobility/static/js/main.2e6c21e7.js.map",
     "787.1edfe72a.chunk.js.map": "/tetsForSeobility/static/js/787.1edfe72a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c247821.css",
+    "static/css/main.fe636e4c.css",
     "static/js/main.2e6c21e7.js"
   ]
 }
