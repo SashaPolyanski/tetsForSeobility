@@ -18,16 +18,11 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = ({
                                                            }) => {
     const dispatch = useAppDispatch()
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange
-        && onChange(e)
+        onChange && onChange(e)
         onChangeText && onChangeText(e.currentTarget.value)
         validate && validate(e.currentTarget.value, dispatch)
         dispatch(setErrorSubmit(''))
-
-
     }
-
-
     return (
         <div className={s.inputContainer}>
             <input

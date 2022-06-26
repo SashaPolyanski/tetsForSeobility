@@ -7,7 +7,6 @@ import {
 } from "../../b2-bll/formReducer";
 import {Dispatch} from "react";
 
-
 export const validateName = (name: string, dispatch: Dispatch<setErrorNameType>) => {
     const reg = /^.{3,30} .{3,30}$/.test(name)
     name && reg ? dispatch(setErrorName('')) : dispatch(setErrorName('Min length name and lastName 3-30 characters'))

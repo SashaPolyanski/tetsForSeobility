@@ -12,13 +12,11 @@ type SuperTextAreaPropsType = DefaultInputPropsType & {
 const SuperTextArea: React.FC<SuperTextAreaPropsType> = ({onChange, onChangeText, validate, ...restProps}) => {
     const dispatch = useAppDispatch()
     const onChangeCallback = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        onChange
-        && onChange(e)
+        onChange && onChange(e)
         onChangeText && onChangeText(e.currentTarget.value)
         validate && validate(e.currentTarget.value, dispatch)
         dispatch(setErrorSubmit(''))
     }
-
 
     return (
         <div className={s.inputContainer}>

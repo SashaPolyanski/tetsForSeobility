@@ -7,16 +7,16 @@ import {
     selectErrorEmail,
     selectErrorMessage,
     selectErrorName,
-    selectErrorPhone, selectErrorSubmit,
-    selectIsLoading,
-    selectResponseServer,
+    selectErrorPhone,
+    selectErrorSubmit,
 } from "../../a1-main/b2-bll/selectors";
 import {
     setErrorDate,
     setErrorEmail,
     setErrorMessage,
     setErrorName,
-    setErrorPhone, setErrorSubmit,
+    setErrorPhone,
+    setErrorSubmit,
     setLoadingApp,
     setResponseServer
 } from "../../a1-main/b2-bll/formReducer";
@@ -30,7 +30,6 @@ type FieldType = 'name' | 'email' | 'phone' | 'date' | 'message'
 
 
 const DefaultForm = () => {
-
     const errorName = useAppSelector(selectErrorName)
     const errorEmail = useAppSelector(selectErrorEmail)
     const errorPhone = useAppSelector(selectErrorPhone)
@@ -43,7 +42,6 @@ const DefaultForm = () => {
     const [phone, setPhone] = useState('')
     const [date, setDate] = useState('')
     const [message, setMessage] = useState('')
-
 
     const touchedHandler = (value: string, field: FieldType) => {
         if (value === '') {
@@ -67,14 +65,10 @@ const DefaultForm = () => {
         }
     }
 
-
     const onChangeNameToUpperCaseHandler = (name: string) => {
-        let newName = name.toUpperCase().trimStart()
-            .replace(/[^a-z\s]/gi, '');
+        let newName = name.toUpperCase().trimStart().replace(/[^a-z\s]/gi, '');
         const splittedName = newName.split(' ');
-        if (splittedName.length > 2) {
-            newName = `${splittedName[0]} ${splittedName[1]}`
-        }
+        if (splittedName.length > 2) newName = `${splittedName[0]} ${splittedName[1]}`
         setName(newName)
     }
 
@@ -83,28 +77,17 @@ const DefaultForm = () => {
         dispatch(setErrorPhone(''))
     }
 
-
     const submitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (name === '' ||
-            email === '' ||
-            phone === '' ||
-            date === '' ||
-            message === '') {
+        if (name === '' || email === '' || phone === '' ||
+            date === '' || message === '') {
             dispatch(setErrorSubmit('All fields are required'))
             return
         }
-        if (
-            errorMessage ||
-            errorPhone ||
-            errorDate ||
-            errorName ||
-            errorEmail
-        ) {
-            dispatch(setErrorSubmit('Please fill in the fields correctly'))
+        if (errorMessage || errorPhone || errorDate || errorName || errorEmail) {
+            dispatch(setErrorSubmit('Please,fill in the fields correctly'))
             return
         }
-
         //Данные для отправки на сервер собранные из формы
         const formData = {name, email, phone, date, message}
         dispatch(setLoadingApp(true))
@@ -138,7 +121,6 @@ const DefaultForm = () => {
                                 onChangeText={onChangeNameToUpperCaseHandler}
                                 validate={validateName}/>
                     {errorName && <div className={s.errorField}>{errorName}</div>}
-
                 </div>
                 <div className={s.formInputItem}>
                     <SuperInput placeholder={'Email'}
@@ -156,11 +138,9 @@ const DefaultForm = () => {
                                mask='+7 (999) 999-99-99'
                                className={s.mask}
                                onBlur={(e) => touchedHandler(e.currentTarget.value, 'phone')}
-                               onChange={onChangePhone}
-                    />
+                               onChange={onChangePhone}/>
                     {errorPhone && <div className={s.errorField}>{errorPhone}</div>}
                 </div>
-
                 <div className={s.formInputItem}>
                     <SuperInput placeholder={'date'}
                                 type={'date'}

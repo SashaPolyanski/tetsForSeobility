@@ -9,7 +9,6 @@ const initialState = {
     responseServer: '',
 }
 
-
 export const formReducer = (state = initialState, action: FormActionsType): InitialStateType => {
     switch (action.type) {
         case "FORM/SET-LOADING-APP":
@@ -28,7 +27,6 @@ export const formReducer = (state = initialState, action: FormActionsType): Init
             return {...state, responseServer: action.payload.value}
         case 'FORM/SET-ERROR-SUBMIT' :
             return {...state, errorSubmit: action.payload.value}
-
         default:
             return state
     }

@@ -9,10 +9,8 @@ const rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer)
-
 export const useAppDispatch = () => useDispatch<ThunkDispatch<AppRootStateType, unknown, FormActionsType>>()
 export const useAppSelector: TypedUseSelectorHook<AppRootStateType> = useSelector
 
-//types
 export type AppRootStateType = ReturnType<typeof rootReducer>
-// все типы экшенов для App
+
