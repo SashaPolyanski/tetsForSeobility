@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
-import SuperInput from "./a1-main/b1-ui/superInputText/SuperInput";
-import SuperInputPassword from "./a1-main/b1-ui/superInputPassword/SuperInputPassword";
+import DefaultForm from "./a2-features/defaultForm/DefaultForm";
 
 function App() {
-  return (
-    <div className="App">
-      <SuperInput/>
-      <SuperInputPassword/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <DefaultForm/>
+        </div>
+    );
 }
 
 export default App;
